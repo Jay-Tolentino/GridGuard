@@ -52,12 +52,16 @@ def test_missing_likelihood():
     assert issues.iloc[0]["issue_type"] == "Invalid Risk Input"
 
 
+
 def test_all_valid_records():
     df = pd.concat([
         make_record(2, 3, 6),
         make_record(4, 5, 20),
         make_record(1, 2, 2)
     ], ignore_index=True)
+
+    # Each equipment record must have a unique asset ID
+    df["asset_id"] = ["TEST-001", "TEST-002", "TEST-003"]
 
     issues = validate_equipment(df)
 
