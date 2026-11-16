@@ -32,6 +32,13 @@ The project demonstrates how scripting, data analysis, and reporting can help id
 | pytest | Automated testing |
 | Git | Version control |
 
+## Dashboard Preview
+
+![GridGuard Dashboard](docs/screenshots/gridguard_dashboard.png)
+
+The dashboard displays equipment records, validation findings,
+and issue categories using synthetic utility data.
+
 ## How It Works
 
 1. Equipment records are loaded from a synthetic CSV dataset.
