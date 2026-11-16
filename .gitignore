@@ -1,0 +1,21 @@
+# Python virtual environment
+.venv/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# IDE files
+.vscode/
+
+# Generated database files
+*.db
+*.sqlite3
+
+# Temporary files
+*.log
