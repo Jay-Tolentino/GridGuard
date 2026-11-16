@@ -1,0 +1,11 @@
+asset_id,asset_type,location,likelihood,impact,risk_score,last_inspection,status
+SUB-001,Transformer,Station A,3,4,12,2026-10-15,Active
+SUB-002,Circuit Breaker,Station B,4,4,9,2026-09-20,Active
+SUB-003,Transformer,Station C,3,5,,2026-08-12,Active
+SUB-004,Relay,Station A,2,3,6,2026-10-02,Active
+SUB-005,Switchgear,Station D,5,4,20,2026-07-18,Maintenance
+SUB-006,Transformer,Station B,6,3,18,2026-09-10,Active
+SUB-007,Circuit Breaker,Station C,2,4,8,2026-10-22,Active
+SUB-008,Relay,Station D,3,3,9,2026-11-01,Inactive
+SUB-009,Switchgear,Station A,4,5,20,2026-06-30,Active
+SUB-010,Transformer,Station B,2,2,4,2026-10-11,Active
