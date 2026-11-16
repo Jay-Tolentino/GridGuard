@@ -66,3 +66,48 @@ def test_all_valid_records():
     issues = validate_equipment(df)
 
     assert issues.empty
+
+
+def test_duplicate_asset_ids():
+    df = pd.concat([
+        make_record(2, 3, 6),
+        make_record(4, 5, 20)
+    ], ignore_index=True)
+
+    issues = validate_equipment(df)
+
+    assert len(issues) == 1
+    assert issues.iloc[0]["issue_type"] == "Duplicate Asset ID"
+
+
+def test_unique_asset_ids():
+    df = pd.concat([
+        make_record(2, 3, 6),
+        make_record(4, 5, 20)
+    ], ignore_index=True)
+
+    df["asset_id"] = ["TEST-001", "TEST-002"]
+
+    issues = validate_equipment(df)
+
+    assert issues.empty
+
+
+def test_future_inspection_date():
+    df = make_record(3, 4, 12)
+    df["last_inspection"] = "2099-01-01"
+
+    issues = validate_equipment(df)
+
+    assert len(issues) == 1
+    assert issues.iloc[0]["issue_type"] == "Future Inspection Date"
+
+
+def test_invalid_inspection_date():
+    df = make_record(3, 4, 12)
+    df["last_inspection"] = "not-a-real-date"
+
+    issues = validate_equipment(df)
+
+    assert len(issues) == 1
+    assert issues.iloc[0]["issue_type"] == "Invalid Inspection Date"
